@@ -30,7 +30,9 @@
         },
         {
           "name": "@electron-forge/maker-zip",
-          "platforms": ["darwin"]
+          "platforms": [
+            "darwin"
+          ]
         },
         {
           "name": "@electron-forge/maker-deb",
@@ -42,5 +44,8 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "monaco-editor": "^0.52.2"
   }
 }

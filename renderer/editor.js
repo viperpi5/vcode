@@ -1,12 +1,9 @@
-// Configure Monaco's base path
-require.config({ paths: { vs: './monaco/min/vs' } });
+const monaco = require('monaco-editor');
 
-// Load and initialize Monaco Editor
-require(['vs/editor/editor.main'], function () {
-    monaco.editor.create(document.getElementById('editor-container'), {
-        value: `// Welcome to VCode!\nfunction hello() {\n    console.log("Hello, world!");\n}`,
-        language: 'javascript',
-        theme: 'vs-dark',
-        automaticLayout: true
-    });
+// Create Monaco Editor instance
+monaco.editor.create(document.getElementById('editor-container'), {
+    value: `// Welcome to Monaco Editor!\nconsole.log('Hello, world!');`,
+    language: 'javascript',
+    theme: 'vs-dark',
+    automaticLayout: true,
 });

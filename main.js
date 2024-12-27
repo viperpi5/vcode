@@ -4,18 +4,20 @@ const path = require('path');
 let mainWindow;
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true
-    }
-  });
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true, // Allow require in the renderer process
+            contextIsolation: false, // Disable context isolation
+        },
+    });
 
-  mainWindow.loadFile(path.join(__dirname, 'renderer/index.html'));
+    mainWindow.loadFile('renderer/index.html');
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
